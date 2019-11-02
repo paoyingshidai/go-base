@@ -78,8 +78,13 @@ func main() {
 	//method := function.Increase()
 	//fmt.Println(method())
 
-	me := FuncAsParamImpl
-	function.FuncAsParam(me)
+	adder := function.Adder()
+	fmt.Println(adder(2))
+	fmt.Println(adder(2))
+	fmt.Println(adder(2))
+
+	//me := FuncAsParamImpl
+	//function.FuncAsParam(me)
 }
 
 // 这个是函数的模板的实现
