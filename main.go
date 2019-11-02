@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"workspace2/function"
 	"workspace2/myinterface"
 )
 
@@ -78,13 +77,31 @@ func main() {
 	//method := function.Increase()
 	//fmt.Println(method())
 
-	adder := function.Adder()
-	fmt.Println(adder(2))
-	fmt.Println(adder(2))
-	fmt.Println(adder(2))
+	//adder := function.Adder()
+	//fmt.Println(adder(2))
+	//fmt.Println(adder(2))
+	//fmt.Println(adder(2))
 
 	//me := FuncAsParamImpl
 	//function.FuncAsParam(me)
+
+	// goruntimes
+
+	c := make(chan bool)
+	go func() {
+		fmt.Println("GO, Go, GO")
+		c <- true
+		close(c) // 关闭通道
+	}()
+	// 这里等待 go 函数执行完， 相当于 java 里面的 join
+	//<- c
+	fmt.Println("GO, Go")
+
+	// 迭代通道的时候必须先关闭通道
+	for v := range c {
+		println(v)
+	}
+	fmt.Println("GO")
 }
 
 // 这个是函数的模板的实现
