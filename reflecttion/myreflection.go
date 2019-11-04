@@ -32,7 +32,7 @@ func Info(o interface{}) {
 	fmt.Println("type: ", t.Name())
 
 	v := reflect.ValueOf(o)
-	fmt.Println("Fields: ")
+	fmt.Println("Fields: ", v)
 
 	for i := 0; i < t.NumField(); i++ {
 		f := t.Field(i)
@@ -104,6 +104,6 @@ func main() {
 	//u := User{1, "OK", 12}
 	//Info(u)
 
-	CallMethod()
+	//CallMethod()
 
 }
